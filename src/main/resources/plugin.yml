@@ -1,0 +1,9 @@
+name: OpenCraft
+version: '$version'
+main: dev.matytyma.opencraft.OpenCraft
+api-version: '1.21'
+load: STARTUP
+libraries: [
+  org.jetbrains.kotlin:kotlin-stdlib:2.0.20,
+  org.jetbrains.kotlinx:kotlinx-serialization-json,
+]

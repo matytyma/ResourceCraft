@@ -1,11 +1,13 @@
 package dev.matytyma.opencraft.pack.model
 
-import kotlinx.serialization.SerialName
+import dev.matytyma.opencraft.pack.NamespacedKey
+import dev.matytyma.opencraft.serializer.NamespacedKeyMapSerializer
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class ItemModel(
-    val parent: String,
-    val textures: Map<String, String>,
+    val parent: NamespacedKey,
+    @Serializable(NamespacedKeyMapSerializer::class)
+    val textures: Map<String, NamespacedKey>,
     val overrides: List<ModelOverride>? = null,
 )

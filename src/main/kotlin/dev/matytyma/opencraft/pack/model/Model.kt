@@ -1,12 +1,13 @@
 package dev.matytyma.opencraft.pack.model
 
+import dev.matytyma.opencraft.pack.NamespacedKey
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class ModelOverride(
     val predicate: Predicate,
-    val model: String,
+    val model: NamespacedKey,
 )
 
 @Serializable

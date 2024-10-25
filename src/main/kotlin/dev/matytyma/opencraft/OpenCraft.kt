@@ -1,8 +1,8 @@
 package dev.matytyma.opencraft
 
+import dev.matytyma.opencraft.pack.NamespacedKey
 import dev.matytyma.opencraft.pack.PackMeta
 import dev.matytyma.opencraft.pack.model.*
-import dev.matytyma.opencraft.version.PackFormat
 import dev.matytyma.opencraft.version.ServerVersion
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -24,16 +24,22 @@ class OpenCraft : JavaPlugin(), Listener {
                     zos.addFile("assets/minecraft/textures/item/matytyma.png", File(dataFolder, "pack.png").readBytes())
                 }
             }
-            zos.addJsonFile("assets/minecraft/models/item/matytyma.json", ItemModel("minecraft:item/diamond", mapOf("layer0" to "minecraft:item/matytyma")))
+            zos.addJsonFile(
+                "assets/minecraft/models/item/matytyma.json",
+                ItemModel(NamespacedKey.minecraft("item/diamond"), mapOf("layer0" to NamespacedKey.minecraft("item/matytyma")))
+            )
+
             zos.addJsonFile(
                 "assets/minecraft/models/item/diamond.json",
                 ItemModel(
-                    "minecraft:item/generated",
-                    mapOf("layer0" to "minecraft:item/diamond"),
-                    listOf(ModelOverride(
-                        Predicate(1),
-                        "minecraft:item/matytyma"
-                    ))
+                    NamespacedKey.minecraft("item/generated"),
+                    mapOf("layer0" to NamespacedKey.minecraft("item/diamond")),
+                    listOf(
+                        ModelOverride(
+                            Predicate(1),
+                            NamespacedKey.minecraft("item/matytyma")
+                        )
+                    )
                 )
             )
         }
@@ -49,4 +55,5 @@ private fun ZipOutputStream.addFile(name: String, content: ByteArray) {
 
 private fun ZipOutputStream.addFile(name: String, content: String) = addFile(name, content.toByteArray())
 
-private inline fun <reified T> ZipOutputStream.addJsonFile(name: String, content: T) = addFile(name, Json.encodeToString<T>(content))
+private inline fun <reified T> ZipOutputStream.addJsonFile(name: String, content: T) =
+    addFile(name, Json.encodeToString<T>(content))

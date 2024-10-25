@@ -8,14 +8,11 @@ import kotlinx.serialization.descriptors.*
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
-private fun deserializePackFormat(packFormatNumber: Int) =
-    PackFormat.entries.first { it.representation == packFormatNumber }
-
 object PackFormatSerializer : KSerializer<PackFormat> {
     override val descriptor: SerialDescriptor
         get() = PrimitiveSerialDescriptor("PackFormatSerializer", PrimitiveKind.INT)
 
-    override fun deserialize(decoder: Decoder) = deserializePackFormat(decoder.decodeInt())
+    override fun deserialize(decoder: Decoder) = throw UnsupportedOperationException()
 
     override fun serialize(encoder: Encoder, value: PackFormat) = encoder.encodeInt(value.representation)
 }
@@ -27,8 +24,7 @@ object PackFormatRangeSerializer : KSerializer<ClosedRange<PackFormat>> {
     override val descriptor: SerialDescriptor
         get() = SerialDescriptor("IntRangeAsArraySerializer", delegate.descriptor)
 
-    override fun deserialize(decoder: Decoder) =
-        delegate.deserialize(decoder).map(::deserializePackFormat).let { it[0]..it[1] }
+    override fun deserialize(decoder: Decoder) = throw UnsupportedOperationException()
 
     override fun serialize(encoder: Encoder, value: ClosedRange<PackFormat>) =
         delegate.serialize(encoder, intArrayOf(value.start.representation, value.endInclusive.representation))

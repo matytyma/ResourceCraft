@@ -14,7 +14,7 @@ object PackFormatSerializer : KSerializer<PackFormat> {
 
     override fun deserialize(decoder: Decoder) = throw UnsupportedOperationException()
 
-    override fun serialize(encoder: Encoder, value: PackFormat) = encoder.encodeInt(value.representation)
+    override fun serialize(encoder: Encoder, value: PackFormat) = encoder.encodeInt(value.value)
 }
 
 object PackFormatRangeSerializer : KSerializer<ClosedRange<PackFormat>> {
@@ -27,5 +27,5 @@ object PackFormatRangeSerializer : KSerializer<ClosedRange<PackFormat>> {
     override fun deserialize(decoder: Decoder) = throw UnsupportedOperationException()
 
     override fun serialize(encoder: Encoder, value: ClosedRange<PackFormat>) =
-        delegate.serialize(encoder, intArrayOf(value.start.representation, value.endInclusive.representation))
+        delegate.serialize(encoder, intArrayOf(value.start.value, value.endInclusive.value))
 }

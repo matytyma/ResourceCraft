@@ -2,7 +2,7 @@ package dev.matytyma.opencraft.version
 
 enum class PackFormat(
     val versionRange: ServerVersionRange,
-    val representation: Int,
+    val value: Int,
 ) {
     ONE(ServerVersion(1, 6, 1)..ServerVersion(1, 8, 9), 1),
     TWO(ServerVersion(1, 9)..ServerVersion(1, 10, 2), 2),

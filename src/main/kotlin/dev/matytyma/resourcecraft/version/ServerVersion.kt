@@ -1,4 +1,4 @@
-package dev.matytyma.opencraft.version
+package dev.matytyma.resourcecraft.version
 
 data class ServerVersion(
     val major: Int,

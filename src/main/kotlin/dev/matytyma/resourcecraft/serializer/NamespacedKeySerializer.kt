@@ -1,6 +1,6 @@
-package dev.matytyma.opencraft.serializer
+package dev.matytyma.resourcecraft.serializer
 
-import dev.matytyma.opencraft.pack.NamespacedKey
+import dev.matytyma.resourcecraft.pack.NamespacedKey
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.builtins.MapSerializer

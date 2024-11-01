@@ -1,1 +1,1 @@
-rootProject.name = "OpenCraft"
+rootProject.name = "ResourceCraft"

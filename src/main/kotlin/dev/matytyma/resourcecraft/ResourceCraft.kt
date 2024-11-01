@@ -1,11 +1,11 @@
-package dev.matytyma.opencraft
+package dev.matytyma.resourcecraft
 
-import dev.matytyma.opencraft.pack.NamespacedKey
-import dev.matytyma.opencraft.pack.PackMeta
-import dev.matytyma.opencraft.pack.blockstate.BlockState
-import dev.matytyma.opencraft.pack.blockstate.BlockStateVariant
-import dev.matytyma.opencraft.pack.model.*
-import dev.matytyma.opencraft.version.ServerVersion
+import dev.matytyma.resourcecraft.pack.NamespacedKey
+import dev.matytyma.resourcecraft.pack.PackMeta
+import dev.matytyma.resourcecraft.pack.blockstate.BlockState
+import dev.matytyma.resourcecraft.pack.blockstate.BlockStateVariant
+import dev.matytyma.resourcecraft.pack.model.*
+import dev.matytyma.resourcecraft.version.ServerVersion
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -15,7 +15,7 @@ import java.io.*
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
-class OpenCraft : JavaPlugin(), Listener {
+class ResourceCraft : JavaPlugin(), Listener {
     override fun onEnable() {
         val file = File(dataFolder, "pack.zip")
         ZipOutputStream(BufferedOutputStream(FileOutputStream(file))).use { zos ->
@@ -62,7 +62,7 @@ class OpenCraft : JavaPlugin(), Listener {
             zos.addJsonFile(
                 "assets/minecraft/models/block/rick.json",
                 BlockModel(
-                    NamespacedKey.minecraft("block/decorated_pot"),
+                    NamespacedKey.minecraft("block/note_block"),
                     NamespacedKey.minecraft("block/rick").let {
                         mapOf("particle" to it, "all" to it, "texture" to it)
                     }

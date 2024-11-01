@@ -1,4 +1,4 @@
-package dev.matytyma.opencraft.version
+package dev.matytyma.resourcecraft.version
 
 enum class PackFormat(
     val versionRange: ServerVersionRange,

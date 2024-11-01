@@ -1,6 +1,6 @@
-package dev.matytyma.opencraft.serializer
+package dev.matytyma.resourcecraft.serializer
 
-import dev.matytyma.opencraft.version.PackFormat
+import dev.matytyma.resourcecraft.version.PackFormat
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.builtins.IntArraySerializer

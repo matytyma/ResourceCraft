@@ -1,6 +1,6 @@
-name: OpenCraft
+name: ResourceCraft
 version: '$version'
-main: dev.matytyma.opencraft.OpenCraft
+main: dev.matytyma.resourcecraft.ResourceCraft
 api-version: '1.21'
 load: STARTUP
 libraries: [

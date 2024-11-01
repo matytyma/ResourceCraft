@@ -1,6 +1,6 @@
-package dev.matytyma.opencraft.pack.blockstate
+package dev.matytyma.resourcecraft.pack.blockstate
 
-import dev.matytyma.opencraft.pack.NamespacedKey
+import dev.matytyma.resourcecraft.pack.NamespacedKey
 import kotlinx.serialization.Serializable
 
 @Serializable

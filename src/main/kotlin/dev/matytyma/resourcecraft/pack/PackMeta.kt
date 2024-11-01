@@ -1,8 +1,8 @@
-package dev.matytyma.opencraft.pack
+package dev.matytyma.resourcecraft.pack
 
-import dev.matytyma.opencraft.serializer.PackFormatRangeSerializer
-import dev.matytyma.opencraft.serializer.PackFormatSerializer
-import dev.matytyma.opencraft.version.PackFormat
+import dev.matytyma.resourcecraft.serializer.PackFormatRangeSerializer
+import dev.matytyma.resourcecraft.serializer.PackFormatSerializer
+import dev.matytyma.resourcecraft.version.PackFormat
 import kotlinx.serialization.*
 
 @Serializable

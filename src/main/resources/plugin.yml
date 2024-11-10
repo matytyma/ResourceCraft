@@ -6,4 +6,5 @@ load: STARTUP
 libraries: [
   org.jetbrains.kotlin:kotlin-stdlib:2.0.20,
   org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3,
+  net.peanuuutz.tomlkt:tomlkt-jvm:0.4.0,
 ]

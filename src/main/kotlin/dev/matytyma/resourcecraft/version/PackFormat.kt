@@ -13,17 +13,17 @@ enum class PackFormat(
     SEVEN(ServerVersion(1, 17)..ServerVersion(1, 17, 1), 7),
     EIGHT(ServerVersion(1, 18)..ServerVersion(1, 18, 2), 8),
     NINE(ServerVersion(1, 19)..ServerVersion(1, 19, 2), 9),
-    TWELVE(ServerVersion(1, 19, 3).let { it..it }, 12),
-    THIRTEEN(ServerVersion(1, 19, 4).let { it..it }, 13),
+    TWELVE(ServerVersion(1, 19, 3).singletonRange(), 12),
+    THIRTEEN(ServerVersion(1, 19, 4).singletonRange(), 13),
     FIFTEEN(ServerVersion(1, 20)..ServerVersion(1, 20, 1), 15),
-    EIGHTEEN(ServerVersion(1, 20, 2).let { it..it }, 18),
+    EIGHTEEN(ServerVersion(1, 20, 2).singletonRange(), 18),
     TWENTY_TWO(ServerVersion(1, 20, 3)..ServerVersion(1, 20, 4), 22),
     THIRTY_TWO(ServerVersion(1, 20, 5)..ServerVersion(1, 20, 6), 32),
     THIRTY_FOUR(ServerVersion(1, 21)..ServerVersion(1, 21, 1), 34),
     FORTY_TWO(ServerVersion(1, 21, 2)..ServerVersion(1, 21, 3), 42),
-    FORTY_SIX(ServerVersion(1, 21, 4).let { it..it }, 46),
-    FIFTY_FIVE(ServerVersion(1, 21, 5).let { it..it }, 55),
-    SIXTY_THREE(ServerVersion(1, 21, 6).let { it..it }, 63),
+    FORTY_SIX(ServerVersion(1, 21, 4).singletonRange(), 46),
+    FIFTY_FIVE(ServerVersion(1, 21, 5).singletonRange(), 55),
+    SIXTY_THREE(ServerVersion(1, 21, 6).singletonRange(), 63),
     SIXTY_FOUR(ServerVersion(1, 21, 7)..ServerVersion(1, 21, 8), 64),
     ;
 
@@ -31,3 +31,5 @@ enum class PackFormat(
         fun forVersion(version: ServerVersion) = entries.first { version in it.versionRange }
     }
 }
+
+private fun ServerVersion.singletonRange(): ServerVersionRange = this..this

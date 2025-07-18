@@ -12,7 +12,7 @@ data class ServerVersion(
             val parts = runCatching {
                 version.split('.').map(String::toInt)
             }.getOrElse { error("Could not parse version string '$version'") }
-            require(parts.size in 2..3) { "Version must be either 'major.minor' or 'major.minor.patch'" }
+            require(parts.size == 2 || parts.size == 3) { "Version must be either 'major.minor' or 'major.minor.patch'" }
             val major = parts[0]
             val minor = parts[1]
             val patch = parts.getOrNull(2) ?: 0

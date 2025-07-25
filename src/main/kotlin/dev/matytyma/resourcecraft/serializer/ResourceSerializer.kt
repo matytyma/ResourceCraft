@@ -6,9 +6,9 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import java.io.File
 
-class FilePathSerializer(private val path: File) : KSerializer<File> {
+class ResourceSerializer(private val path: File) : KSerializer<File> {
     override val descriptor: SerialDescriptor
-        get() = PrimitiveSerialDescriptor("FilePathSerializer", PrimitiveKind.STRING)
+        get() = PrimitiveSerialDescriptor("ResourceSerializer", PrimitiveKind.STRING)
 
     override fun deserialize(decoder: Decoder) = File(path, decoder.decodeString())
 

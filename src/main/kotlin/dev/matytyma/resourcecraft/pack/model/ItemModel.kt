@@ -10,7 +10,7 @@ data class ItemModel(
     override val parent: NamespacedKey,
     @Serializable(NamespacedKeyMapSerializer::class)
     override val textures: Map<String, NamespacedKey>,
-    val overrides: List<ModelOverride<ItemPredicate>>? = null,
+    val overrides: MutableList<ModelOverride<ItemPredicate>> = mutableListOf(),
 ) : Model
 
 @Serializable
